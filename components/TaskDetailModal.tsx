@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, ChangeEvent, useRef, useCallback, useMemo } from 'react';
 import { 
   ProjectTask, SubStep, EditableExtendedTaskDetails, TaskStatus,
@@ -122,13 +121,13 @@ interface TaskDetailModalProps {
   task: ProjectTask | null;
   onClose: () => void;
   onUpdateTaskCoreInfo: (taskId: string, details: { title: string; description: string; status: TaskStatus }) => void; 
-  onUpdateExtendedDetails: (taskId: string, details: EditableExtendedTaskDetails) => void; 
+  onUpdateTaskExtendedDetails: (taskId: string, details: EditableExtendedTaskDetails) => void; 
   generateUniqueId: (prefix: string) => string;
   projectGoal: string;
   targetDate: string;
 }
 
-const TaskDetailModal: React.FC<TaskDetailModalProps> = ({ task, onClose, onUpdateTaskCoreInfo, onUpdateExtendedDetails, generateUniqueId, projectGoal, targetDate }) => {
+const TaskDetailModal: React.FC<TaskDetailModalProps> = ({ task, onClose, onUpdateTaskCoreInfo, onUpdateTaskExtendedDetails, generateUniqueId, projectGoal, targetDate }) => {
   if (!task) return null;
 
   // Main state
@@ -579,7 +578,7 @@ const TaskDetailModal: React.FC<TaskDetailModalProps> = ({ task, onClose, onUpda
   
   const handleSaveChanges = () => {
     onUpdateTaskCoreInfo(editableTask.id, { title: editableTask.title, description: editableTask.description, status: editableTask.status! });
-    onUpdateExtendedDetails(editableTask.id, editableTask.extendedDetails!);
+    onUpdateTaskExtendedDetails(editableTask.id, editableTask.extendedDetails!);
     onClose(); 
   };
   

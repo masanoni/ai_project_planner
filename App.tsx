@@ -402,7 +402,7 @@ const App: React.FC = () => {
               task={selectedTask}
               onClose={handleCloseTaskDetail}
               onUpdateTaskCoreInfo={handleUpdateTaskCoreInfo}
-              onUpdateExtendedDetails={handleUpdateTaskExtendedDetails}
+              onUpdateTaskExtendedDetails={handleUpdateTaskExtendedDetails}
               generateUniqueId={generateUniqueId}
               projectGoal={projectGoal}
               targetDate={targetDate}
